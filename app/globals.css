@@ -1,26 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground-rgb: 30, 41, 59; /* Slate 800 */
+  --background-rgb: 241, 245, 249; /* Slate 100 */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.875rem; /* 14px base font size */
+}
+
+@layer components {
+  .dashboard-card {
+    @apply bg-white rounded-xl shadow-sm p-4 md:p-6 transition-all border border-slate-200/60;
+  }
+
+  .card-title {
+    @apply mb-3 font-bold text-slate-500 text-xs uppercase tracking-wider;
+  }
+
+  /* Select compacto */
+  .select-compact {
+    @apply block bg-white shadow-sm py-2 pr-10 pl-3 border-gray-300 focus:border-indigo-500 rounded-md focus:outline-none focus:ring-indigo-500 w-full text-sm;
+  }
 }
